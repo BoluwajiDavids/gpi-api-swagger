@@ -7,34 +7,37 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "petstore.swagger.io"
-basePath: "/v2"
+host: "staging.api.admin.govmeter.ng"
+basePath: "/"
 tags:
-- name: "pet"
-  description: "Everything about your Pets"
-  externalDocs:
-    description: "Find out more"
-    url: "http://swagger.io"
-- name: "store"
-  description: "Access to Petstore orders"
-- name: "user"
-  description: "Operations about user"
-  externalDocs:
-    description: "Find out more about our store"
-    url: "http://swagger.io"
+- name: "Auth"
+  description: "Authentication APIs for the portal"
+- name: "Dashboard"
+  description: "Admin Portal Dashboard APIs"
+- name: "Partners"
+  description: "Admin Portal Partners APIs"
+- name: "Indicators"
+  description: "Admin Portal Indicator APIs"
+- name: "Questions"
+  description: "Admin Portal Questions APIs"
+- name: "Users"
+  description: "Admin Porter Users APIs"
+- name: "Others"
+  description: "Utility APIs"
+  
 schemes:
 - "https"
 - "http"
 paths:
-  /pet/{petId}/uploadImage:
+  /auth/login:
     post:
       tags:
-      - "pet"
-      summary: "uploads an image"
+      - "Auths"
+      summary: "Login to Admin Portal"
       description: ""
       operationId: "uploadFile"
       consumes:
-      - "multipart/form-data"
+      - "application/json"
       produces:
       - "application/json"
       parameters:
@@ -56,7 +59,7 @@ paths:
         type: "file"
       responses:
         200:
-          description: "successful operation"
+          description: "Login successful"
           schema:
             $ref: "#/definitions/ApiResponse"
       security:
